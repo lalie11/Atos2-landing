@@ -69,6 +69,36 @@
   color: #444;
 }
 
+.offer-partners {
+  margin-top: 24px;
+  background: #f8fbff;
+  border: 1px solid #dce8ff;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.offer-partners h3 {
+  color: #0037e6;
+  margin-bottom: 16px;
+}
+
+.offer-partners-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.offer-partner-logo {
+  height: 48px;
+  max-width: 120px;
+  object-fit: contain;
+  background: white;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #e7eeff;
+}
+
 @media (max-width: 768px) {
   .offer-content {
     padding: 30px 20px;

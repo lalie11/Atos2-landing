@@ -16,5 +16,17 @@
         <li *ngFor="let service of offer.services">{{ service }}</li>
       </ul>
     </div>
+
+    <div class="offer-partners" *ngIf="offer.partners.length">
+      <h3>Partenaires concernés&nbsp;:</h3>
+      <div class="offer-partners-list">
+        <img
+          *ngFor="let partner of offer.partners"
+          [src]="'assets/images/' + partner"
+          [alt]="partner"
+          class="offer-partner-logo"
+        />
+      </div>
+    </div>
   </div>
 </div>

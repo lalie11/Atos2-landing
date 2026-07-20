@@ -1,5 +1,5 @@
-import { Injectable, signal } from '@angular/core';
-import { SITE_CONFIG } from '../config/site.config';
+import { Injectable, signal } from "@angular/core";
+import { SITE_CONFIG } from "../config/site.config";
 
 export interface Offer {
   key: string;
@@ -7,6 +7,7 @@ export interface Offer {
   title: string;
   text: string;
   services: string[];
+  partners: string[];
 }
 
 /**
@@ -14,86 +15,92 @@ export interface Offer {
  * openOffer() / closeOffer(). L'offre actuellement ouverte est exposée
  * via un signal que le composant OfferModalComponent consomme.
  */
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class OffersService {
   readonly offers: Offer[] = [
     {
-      key: 'ia',
-      number: '01',
-      title: 'Intelligence Artificielle',
+      key: "ia",
+      number: "01",
+      title: "Intelligence Artificielle",
       text: "Nous concevons des systèmes d'IA appliquée qui s'intègrent à vos processus existants et produisent une valeur mesurable dès les premiers mois.",
       services: [
-        'Assistants conversationnels',
-        'Modèles de machine learning',
-        'Analyse prédictive',
-        'Vision par ordinateur',
+        "Assistants conversationnels",
+        "Modèles de machine learning",
+        "Analyse prédictive",
+        "Vision par ordinateur",
         "Automatisation des tâches à faible valeur ajoutée",
       ],
+      partners: ["Microsoft-logo.jpg", "Huawei-logo.jpg", "UiPath-logo.png"],
     },
     {
-      key: 'digital',
-      number: '02',
-      title: 'Transformation Digitale',
+      key: "digital",
+      number: "02",
+      title: "Transformation Digitale",
       text: "Nous repensons vos parcours et vos outils pour gagner en agilité, sans rupture avec votre écosystème existant.",
       services: [
-        'Digitalisation des processus métier',
-        'Applications web et mobile',
-        'Conseil en stratégie digitale',
-        'Automatisation des workflows',
-        'Plateformes collaboratives',
+        "Digitalisation des processus métier",
+        "Applications web et mobile",
+        "Conseil en stratégie digitale",
+        "Automatisation des workflows",
+        "Plateformes collaboratives",
       ],
+      partners: ["Backbase-logo.png", "Sap-logo.jpg", "OracleSun-logo.png"],
     },
     {
-      key: 'cloud',
-      number: '03',
-      title: 'Cloud & Infrastructure',
-      text: 'Des environnements cloud dimensionnés pour votre charge réelle, avec la disponibilité et la sécurité que vos activités exigent.',
+      key: "cloud",
+      number: "03",
+      title: "Cloud & Infrastructure",
+      text: "Des environnements cloud dimensionnés pour votre charge réelle, avec la disponibilité et la sécurité que vos activités exigent.",
       services: [
-        'Migration vers le cloud',
-        'Architectures hybrides',
-        'Stockage et sauvegarde',
-        'Administration systèmes',
-        'Durcissement des serveurs',
+        "Migration vers le cloud",
+        "Architectures hybrides",
+        "Stockage et sauvegarde",
+        "Administration systèmes",
+        "Durcissement des serveurs",
       ],
+      partners: ["Dell-logo.jpg", "Nutanix-logo.png", "RedHat-logo.png"],
     },
     {
-      key: 'cyber',
-      number: '04',
-      title: 'Cybersécurité',
-      text: 'Nous évaluons, renforçons et surveillons votre posture de sécurité face à des menaces en constante évolution.',
+      key: "cyber",
+      number: "04",
+      title: "Cybersécurité",
+      text: "Nous évaluons, renforçons et surveillons votre posture de sécurité face à des menaces en constante évolution.",
       services: [
-        'Audits de sécurité',
-        'Protection des données sensibles',
+        "Audits de sécurité",
+        "Protection des données sensibles",
         "Tests d'intrusion",
         "Supervision du système d'information",
-        'Sécurisation des réseaux',
+        "Sécurisation des réseaux",
       ],
+      partners: ["Bull-logo.jpg", "Commvault-logo.jpg", "Juniper-logo.png"],
     },
     {
-      key: 'data',
-      number: '05',
-      title: 'Data',
-      text: 'Nous transformons vos données brutes en indicateurs exploitables pour éclairer chaque décision.',
+      key: "data",
+      number: "05",
+      title: "Data",
+      text: "Nous transformons vos données brutes en indicateurs exploitables pour éclairer chaque décision.",
       services: [
-        'Ingénierie de la donnée',
-        'Traitement de gros volumes (Big Data)',
-        'Tableaux de bord décisionnels',
-        'Business Intelligence',
-        'Analyse avancée et modélisation',
+        "Ingénierie de la donnée",
+        "Traitement de gros volumes (Big Data)",
+        "Tableaux de bord décisionnels",
+        "Business Intelligence",
+        "Analyse avancée et modélisation",
       ],
+      partners: ["Denodo-logo.png", "Veeam-logo.png", "WSO2-logo.png"],
     },
     {
-      key: 'formation',
-      number: '06',
+      key: "formation",
+      number: "06",
       title: SITE_CONFIG.academyName,
       text: `${SITE_CONFIG.academyName} forme les talents numériques de demain à travers des parcours pratiques et certifiants.`,
       services: [
         "Bootcamps intelligence artificielle",
-        'Cloud Computing',
-        'Cybersécurité',
-        'Data Science',
-        'Accompagnement à l’insertion professionnelle',
+        "Cloud Computing",
+        "Cybersécurité",
+        "Data Science",
+        "Accompagnement à l’insertion professionnelle",
       ],
+      partners: ["Sage-logo.jpg", "Technology-logo.jpg", "Liferay-logo.png"],
     },
   ];
 
