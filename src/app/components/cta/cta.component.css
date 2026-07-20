@@ -1,0 +1,43 @@
+#cta {
+  background: var(--gradient);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-label {
+  color: white;
+}
+
+.cta-inner {
+  max-width: 800px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-title {
+  color: white;
+  font-size: clamp(38px, 5vw, 70px);
+  line-height: 1.1;
+  margin-bottom: 24px;
+  font-family: var(--font-display);
+}
+
+.cta-title em {
+  color: var(--electric-blue);
+}
+
+.cta-text {
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.8;
+  font-size: 17px;
+  margin-bottom: 44px;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,133 @@
+<nav [class.scrolled]="scrolled()">
+  <a href="#" class="nav-logo">
+    <img
+      [src]="site.logo"
+      [alt]="'Logo ' + site.companyName "
+      class="logo-img"
+    />
+     <span class="logo-text">{{ site.country }}</span>
+  </a>
+
+  <ul class="nav-links" [class.open]="menuOpen()">
+    <li><a href="#about" (click)="closeMenu()">À propos</a></li>
+    <li><a href="#services" (click)="closeMenu()">Programmes</a></li>
+    <li><a href="#testimonials" (click)="closeMenu()">Témoignages</a></li>
+    <li><a href="#cta" (click)="closeMenu()">Contact</a></li>
+  </ul>
+
+  <button class="nav-btn" type="button" (click)="openSignupModal()">
+    S'inscrire
+  </button>
+
+  <button class="hamburger" (click)="toggleMenu()" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div
+  class="signup-modal-overlay"
+  *ngIf="signupModalService.signupModalOpen()"
+  (click)="onBackdropClick($event)"
+>
+  <div
+    class="signup-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="signup-modal-title"
+  >
+    <button
+      class="close-modal"
+      type="button"
+      (click)="closeSignupModal()"
+      aria-label="Fermer"
+    >
+      ×
+    </button>
+
+    <h3 id="signup-modal-title">Demande d'inscription professionnelle</h3>
+    <p class="signup-intro">
+      Décrivez votre entreprise et nous vous recontacterons rapidement pour
+      préparer votre accès.
+    </p>
+
+    <form class="signup-form" (submit)="onSignupSubmit($event)">
+      <div class="field-grid">
+        <label>
+          Nom de l'entreprise
+          <input
+            type="text"
+            name="company"
+            required
+            placeholder="Ex. Atos Group"
+          />
+        </label>
+        <label>
+          Nom du contact
+          <input
+            type="text"
+            name="contact"
+            required
+            placeholder="Ex. Amélie Martin"
+          />
+        </label>
+        <label>
+          Adresse e-mail
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="contact@entreprise.com"
+          />
+        </label>
+        <label>
+          Téléphone
+          <input
+            type="tel"
+            name="phone"
+            required
+            placeholder="07 12 34 56 78"
+          />
+        </label>
+      </div>
+
+      <label>
+        Type d'organisation
+        <select name="organizationType" required>
+          <option value="">Sélectionner</option>
+          <option value="startup">Startup</option>
+          <option value="sme">PME / ETI</option>
+          <option value="agency">Agence</option>
+          <option value="other">Autre</option>
+        </select>
+      </label>
+
+      <label>
+        Besoin principal
+        <textarea
+          name="need"
+          rows="4"
+          required
+          placeholder="Décrivez votre objectif, votre besoin de formation ou votre projet."
+        ></textarea>
+      </label>
+
+      <div class="form-actions">
+        <button
+          class="btn-secondary"
+          type="button"
+          (click)="closeSignupModal()"
+        >
+          Annuler
+        </button>
+        <button class="btn-primary" type="submit">Envoyer la demande</button>
+      </div>
+
+      <p class="form-success" *ngIf="signupModalService.formSubmitted()">
+        Merci, votre demande a bien été enregistrée. Nous vous contacterons très
+        prochainement.
+      </p>
+    </form>
+  </div>
+</div>

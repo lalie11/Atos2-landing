@@ -1,0 +1,93 @@
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img
+        src="assets/images/Logo-atos2.png"
+        alt=" 'Logo de l'entreprise' + site.country"
+        class="footer-logo-img"
+      />
+      <p class="footer-text">
+        {{ site.companyName }} accompagne les organisations dans leur
+        transformation numérique, du conseil à la mise en œuvre.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#services">Programmes</a></li>
+        <li><a href="#testimonials">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Programmes</h4>
+      <ul>
+        <li><a href="#services">IA</a></li>
+        <li><a href="#services">Transformation digitale</a></li>
+        <li><a href="#services">Cloud & Infrastructure</a></li>
+        <li><a href="#services">Cybersécurité</a></li>
+        <li><a href="#services">Data</a></li>
+        <li><a href="#services">ADA</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>
+          <a [href]="'mailto:' + site.contact.email">{{
+            site.contact.email
+          }}</a>
+        </li>
+        <li>
+          <a [href]="'tel:' + site.contact.phone">{{ site.contact.phone }}</a>
+        </li>
+        <li>
+          <a href="#" (click)="toggleMap(); $event.preventDefault()">
+            {{ site.contact.address }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-map" *ngIf="showMap()">
+    <div class="footer-map-card">
+      <div class="footer-map-header">
+        <strong>Notre localisation</strong>
+        <button
+          type="button"
+          class="map-close"
+          (click)="toggleMap()"
+          aria-label="Fermer la carte"
+        >
+          ×
+        </button>
+      </div>
+      <iframe
+        [src]="mapsEmbedUrl"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+        title="Carte de localisation de l'entreprise"
+      ></iframe>
+      <a
+        class="footer-map-link"
+        [href]="mapsExternalLink"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ouvrir dans Google Maps →
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">
+      © {{ year }} {{ site.companyName }} — Tous droits réservés
+    </div>
+    <div><a href="#">Confidentialité</a></div>
+  </div>
+</footer>

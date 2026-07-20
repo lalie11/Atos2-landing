@@ -1,0 +1,46 @@
+#stats {
+  background: var(--gradient);
+}
+
+.stats-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 26px;
+  padding: 50px 30px;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 76px;
+  color: white;
+  font-family: var(--font-display);
+}
+
+.stat-title {
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+.stat-text {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+}

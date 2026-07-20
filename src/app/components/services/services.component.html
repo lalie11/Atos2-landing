@@ -1,0 +1,27 @@
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label" appReveal>Nos expertises</div>
+      <h2 class="section-title" appReveal>
+        Six domaines d'expertise au service de
+        <em>votre croissance</em>
+      </h2>
+    </div>
+
+    <p class="section-text" appReveal>
+      Chaque mission démarre par une écoute approfondie de vos enjeux. Nous
+      combinons expertise technique et vision métier pour livrer des
+      solutions qui tiennent leurs promesses sur la durée.
+    </p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card" appReveal *ngFor="let offer of offersService.offers">
+      <div class="service-number">{{ offer.number }}</div>
+      <h3 class="service-title">{{ offer.title }}</h3>
+      <button class="service-btn" (click)="openOffer(offer.key)">
+        Découvrir
+      </button>
+    </div>
+  </div>
+</section>

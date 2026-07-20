@@ -1,0 +1,28 @@
+<section id="testimonials">
+  <div class="testimonials-wrapper">
+    <div class="section-label" appReveal>Témoignages</div>
+
+    <h2 class="section-title" appReveal>
+      Ce que disent nos <em>clients</em>
+    </h2>
+
+    <div class="testimonials-grid">
+      <div
+        class="testimonial-card"
+        appReveal
+        *ngFor="let t of testimonials"
+      >
+        <div class="quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">{{ t.text }}</p>
+        <div class="author">
+          <div class="avatar">{{ t.initials }}</div>
+          <div class="author-info">
+            <h4>{{ t.name }}</h4>
+            <p>{{ t.role }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

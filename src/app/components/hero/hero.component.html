@@ -1,0 +1,44 @@
+<section id="hero">
+  <div class="hero-slideshow" aria-hidden="true">
+    <div
+      class="hero-slide"
+      *ngFor="let slide of slides; let i = index"
+      [class.active]="i === currentSlide()"
+      [style.backgroundImage]="'url(' + slide + ')'"
+    ></div>
+    <div class="hero-slide-overlay"></div>
+  </div>
+
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-inner">
+    <div>
+      <div class="hero-label">{{ site.companyName }}· {{ site.country }} </div>
+
+      <h1 class="hero-title">
+        Donnons de
+        <em> l'élan à votre transformation numérique</em>
+      </h1>
+
+      <p class="hero-subtitle">
+        Cloud, cybersécurité, data et intelligence artificielle&nbsp;: nous
+        concevons des solutions sur mesure pour faire de vos ambitions digitales
+        une réalité durable.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">Explorer nos expertises</a>
+        <a href="#about" class="btn-outline">Qui sommes-nous</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-dots" aria-label="Diaporama">
+    <span
+      *ngFor="let slide of slides; let i = index"
+      class="hero-dot"
+      [class.active]="i === currentSlide()"
+    ></span>
+  </div>
+</section>

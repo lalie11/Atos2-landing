@@ -1,0 +1,20 @@
+<div
+  class="offer-modal"
+  [class.active]="offersService.activeOffer() !== null"
+  *ngIf="offersService.activeOffer() as offer"
+  (click)="onBackdropClick($event)"
+>
+  <div class="offer-content">
+    <span class="close-modal" (click)="close()">&times;</span>
+
+    <h1>{{ offer.title }}</h1>
+    <p>{{ offer.text }}</p>
+
+    <div class="offer-box">
+      <h3>Nos services&nbsp;:</h3>
+      <ul>
+        <li *ngFor="let service of offer.services">{{ service }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
