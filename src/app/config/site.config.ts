@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
   country: "Côte d'Ivoire",
   city: 'Abidjan',
 
-  logo: 'assets/images/atos-logo.jpg',
+  logo: 'assets/images/atos-logo.png',
 
   academyName: 'ADA — Atos Digital Academy',
 
