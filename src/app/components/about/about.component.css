@@ -65,7 +65,7 @@
 }
 
 .about-box::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 300px;
   height: 300px;
@@ -80,8 +80,11 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 30px;
-  padding: 40px 20px;
+  gap: 24px;
+  padding: 28px 24px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .partner-logo {
@@ -93,21 +96,27 @@
 
 .floating-card {
   position: absolute;
-  bottom: -20px;
-  right: -20px;
-  background: white;
-  padding: 26px;
-  border-radius: 24px;
+  bottom: -2px;
+  right: 1px;
+  background: var(--primary-blue);
+  color: white;
+  padding: 14px 18px;
+  border-radius: 16px;
   box-shadow: var(--shadow);
+  max-width: 120px;
+  text-align: center;
+  z-index: 1;
 }
 
 .floating-card h2 {
-  font-size: 48px;
-  color: var(--primary-blue);
+  font-size: 28px;
+  color: white;
+  margin: 0;
 }
 
 .floating-card p {
-  color: var(--mid-text);
-  font-size: 13px;
-  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  margin-top: 4px;
+  line-height: 1.3;
 }
