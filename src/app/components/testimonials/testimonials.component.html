@@ -24,5 +24,73 @@
         </div>
       </div>
     </div>
+
+    <div class="comment-area" appReveal>
+      <button
+        class="comment-button"
+        type="button"
+        (click)="toggleForm()"
+        [attr.aria-expanded]="isFormVisible"
+        aria-controls="comment-form"
+      >
+        {{ isFormVisible ? 'Masquer le formulaire' : 'Laissez un commentaire' }}
+      </button>
+
+      <form
+        *ngIf="isFormVisible"
+        id="comment-form"
+        class="comment-form"
+        (ngSubmit)="addTestimonial()"
+        #commentForm="ngForm"
+        novalidate
+      >
+        <div class="form-heading">
+          <h3>Partagez votre expérience</h3>
+          <p>Votre avis pourra rejoindre les témoignages présentés ici.</p>
+        </div>
+
+        <div class="form-fields">
+          <label>
+            Votre nom
+            <input
+              type="text"
+              name="name"
+              [(ngModel)]="newTestimonial.name"
+              required
+              placeholder="Ex. Marie K."
+            />
+          </label>
+
+          <label>
+            Votre fonction
+            <input
+              type="text"
+              name="role"
+              [(ngModel)]="newTestimonial.role"
+              required
+              placeholder="Ex. Cheffe de projet"
+            />
+          </label>
+        </div>
+
+        <label>
+          Votre commentaire
+          <textarea
+            name="text"
+            [(ngModel)]="newTestimonial.text"
+            required
+            rows="4"
+            placeholder="Dites-nous ce que vous avez pensé de votre expérience..."
+          ></textarea>
+        </label>
+
+        <div class="form-footer">
+          <p class="form-error" *ngIf="formSubmitted">
+            Merci de remplir tous les champs avant d'envoyer votre commentaire.
+          </p>
+          <button class="submit-button" type="submit">Publier le commentaire</button>
+        </div>
+      </form>
+    </div>
   </div>
 </section>
