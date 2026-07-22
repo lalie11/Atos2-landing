@@ -4,8 +4,21 @@
       class="hero-slide"
       *ngFor="let slide of slides; let i = index"
       [class.active]="i === currentSlide()"
-      [style.backgroundImage]="'url(' + slide + ')'"
-    ></div>
+      [style.backgroundImage]="
+        slide.type === 'image' ? 'url(' + slide.source + ')' : 'none'
+      "
+    >
+      <video
+        *ngIf="slide.type === 'video'"
+        class="hero-video"
+        [src]="slide.source"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+      ></video>
+    </div>
     <div class="hero-slide-overlay"></div>
   </div>
 
@@ -14,7 +27,7 @@
 
   <div class="hero-inner">
     <div>
-      <div class="hero-label">{{ site.companyName }}· {{ site.country }} </div>
+      <div class="hero-label">{{ site.companyName }}· {{ site.country }}</div>
 
       <h1 class="hero-title">
         Donnons de

@@ -2,6 +2,11 @@ import { CommonModule } from "@angular/common";
 import { Component, OnDestroy, OnInit, signal } from "@angular/core";
 import { SITE_CONFIG } from "../../config/site.config";
 
+interface HeroSlide {
+  type: "image" | "video";
+  source: string;
+}
+
 @Component({
   selector: "app-hero",
   standalone: true,
@@ -11,10 +16,11 @@ import { SITE_CONFIG } from "../../config/site.config";
 })
 export class HeroComponent implements OnInit, OnDestroy {
   readonly site = SITE_CONFIG;
-  readonly slides = [
-    "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80",
-    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
+  readonly slides: HeroSlide[] = [
+    { type: "image", source: "assets/images/bureau.jpg" },
+    { type: "image", source: "assets/images/Partenariat.jpg" },
+    { type: "image", source: "assets/images/Couloir.jpg" },
+    { type: "image", source: "assets/images/salutation.jpg" },
   ];
   readonly currentSlide = signal(0);
   private intervalId: number | undefined;
