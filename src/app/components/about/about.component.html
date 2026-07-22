@@ -1,77 +1,377 @@
 <section id="about">
-  <div class="about-grid">
-    <div>
-      <div class="section-label" appReveal>Notre mission</div>
+  <div class="about-container">
 
-      <h2 class="section-title" appReveal>
-        <em>Accélérer</em> votre performance par <em>le numérique</em>
+    <!-- ================= HEADER ================= -->
+
+    <div class="about-header" appReveal>
+
+      <div class="section-label">
+        À propos d'Atos Côte d'Ivoire
+      </div>
+
+      <h2 class="section-title">
+        Plus de <em>20 ans d'expertise</em> dans la
+        <em>transformation numérique</em>
       </h2>
 
-      <p class="section-text" appReveal>
-        {{ site.companyName }} accompagne les organisations dans la conception,
-        la mise en œuvre et l'exploitation de leurs projets technologiques, avec
-        une exigence constante de fiabilité et de résultat.
+      <p class="section-text">
+        Atos Côte d'Ivoire accompagne les entreprises, les banques,
+        les administrations publiques et les organisations internationales
+        dans leurs projets de transformation digitale, de modernisation
+        des infrastructures et de valorisation des données.
       </p>
 
-      <div class="about-cards">
-        <div class="about-card" appReveal *ngFor="let card of cards">
-          <h4>{{ card.title }}</h4>
-          <p>{{ card.text }}</p>
-        </div>
-      </div>
     </div>
 
-    <div class="about-visual" appReveal>
-      <div class="about-box">
-        <div class="partners-grid">
-          <button
-            type="button"
-            class="partner-button"
-            *ngFor="let partner of partners"
-            (click)="openPartner(partner)"
-            [attr.aria-label]="'Voir les informations sur ' + partner.alt"
-          >
-            <img
-              [src]="'assets/images/' + partner.file"
-              [alt]="partner.alt"
-              class="partner-logo"
-            />
-          </button>
-        </div>
+    <!-- ================= STATISTIQUES ================= -->
 
-        <div class="floating-card">
-          <h2>20+</h2>
-          <p>Entreprises partenaires</p>
-        </div>
+    <div class="stats-grid">
+
+      <div class="stat-card" appReveal>
+
+        <h2>+60</h2>
+
+        <h4>Employés</h4>
+
+        <p>dont 45 consultants spécialisés</p>
+
       </div>
 
-      <div
-        class="partner-modal"
-        *ngIf="selectedPartner as partner"
-        (click)="onBackdropClick($event)"
-      >
-        <div class="partner-modal-content">
-          <button
-            type="button"
-            class="partner-modal-close"
-            (click)="closePartner()"
-          >
-            ×
-          </button>
-          <h3>{{ partner.alt }}</h3>
-          <p>{{ partner.description }}</p>
-          
-          <div class="partner-use-cases">
-            <h4>Domaines d'expertise :</h4>
-            <ul>
-              <li *ngFor="let useCase of partner.UseCase">{{ useCase }}</li>
-            </ul>
-          </div>
-          <p class="partner-modal-tip">
-            Ce partenaire fait partie de l’écosystème de collaboration d’Atos.
+      <div class="stat-card" appReveal>
+
+        <h2>15 M€</h2>
+
+        <h4>Chiffre d'affaires</h4>
+
+        <p>Croissance moyenne de 12 % par an</p>
+
+      </div>
+
+      <div class="stat-card" appReveal>
+
+        <h2>20+</h2>
+
+        <h4>Années d'expérience</h4>
+
+        <p>Au service des entreprises africaines</p>
+
+      </div>
+
+      <div class="stat-card" appReveal>
+
+        <h2>100+</h2>
+
+        <h4>Clients</h4>
+
+        <p>Banques, télécoms, secteur public et industrie</p>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ================= CONTENU ================= -->
+
+    <div class="about-grid">
+
+      <!-- ================= LEFT ================= -->
+
+      <div>
+
+        <div class="about-card large-card" appReveal>
+
+          <h3>
+            Notre expertise
+          </h3>
+
+          <p>
+            Nous proposons des services de conseil,
+            d'intégration, de développement logiciel,
+            de cybersécurité, de cloud computing
+            et de gestion des données afin
+            d'accompagner durablement la transformation
+            numérique de nos clients.
           </p>
+
         </div>
+
+        <div class="expertise-grid">
+
+          <div class="expertise-card" appReveal>
+
+            <i class="fa-solid fa-lightbulb"></i>
+
+            <h4>Conseil stratégique</h4>
+
+            <p>
+              Gouvernance SI,
+              schémas directeurs,
+              accompagnement métier.
+            </p>
+
+          </div>
+
+          <div class="expertise-card" appReveal>
+
+            <i class="fa-solid fa-cloud"></i>
+
+            <h4>Cloud Computing</h4>
+
+            <p>
+              Cloud privé,
+              cloud hybride,
+              infrastructures sécurisées.
+            </p>
+
+          </div>
+
+          <div class="expertise-card" appReveal>
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <h4>Cybersécurité</h4>
+
+            <p>
+              Protection des données,
+              SOC,
+              audit de sécurité.
+            </p>
+
+          </div>
+
+          <div class="expertise-card" appReveal>
+
+            <i class="fa-solid fa-database"></i>
+
+            <h4>Big Data & IA</h4>
+
+            <p>
+              Data Platform,
+              Intelligence Artificielle,
+              Analytics.
+            </p>
+
+          </div>
+
+          <div class="expertise-card" appReveal>
+
+            <i class="fa-solid fa-laptop-code"></i>
+
+            <h4>Applications Digitales</h4>
+
+            <p>
+              Développement Web,
+              Mobile,
+              dématérialisation.
+            </p>
+
+          </div>
+
+          <div class="expertise-card" appReveal>
+
+            <i class="fa-solid fa-gear"></i>
+
+            <h4>ERP & CRM</h4>
+
+            <p>
+              SAP,
+              Oracle,
+              Microsoft,
+              Odoo.
+            </p>
+
+          </div>
+
+          <div class="expertise-card" appReveal>
+
+            <i class="fa-solid fa-seedling"></i>
+
+            <h4>e-Agriculture</h4>
+
+            <p>
+              Digitalisation
+              des services agricoles
+              et plateformes métiers.
+            </p>
+
+          </div>
+
+          <div class="expertise-card" appReveal>
+
+            <i class="fa-solid fa-headset"></i>
+
+            <h4>Assistance Technique</h4>
+
+            <p>
+              Support,
+              maintenance,
+              accompagnement opérationnel.
+            </p>
+
+          </div>
+
+        </div>
+
       </div>
+
+
+
+      <!-- ================= RIGHT ================= -->
+
+      <div class="about-visual" appReveal>
+
+        <div class="city-image">
+
+          <img
+            src="assets/images/abidjan.png"
+            alt="Abidjan"
+          >
+
+          <div class="floating-card">
+
+            <h3>
+              Présence Nationale
+            </h3>
+
+            <p>
+
+              🇨🇮 Côte d'Ivoire
+
+            </p>
+
+            <span>
+
+              Leader de la transformation numérique
+
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="clients-card">
+
+          <h3>
+
+            Principaux clients
+
+          </h3>
+
+          <div class="clients-list">
+
+            <span>SGCI</span>
+
+            <span>Orange CI</span>
+
+            <span>BOA</span>
+
+            <span>BAD</span>
+
+            <span>SONABEL</span>
+
+            <span>Ministère de l'Intérieur</span>
+
+            <span>Gouvernement Ivoirien</span>
+
+            <span>Banques</span>
+
+            <span>Télécoms</span>
+
+            <span>Secteur Public</span>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="timeline-card">
+
+          <h3>
+
+            Notre savoir-faire
+
+          </h3>
+
+          <div class="timeline">
+
+            <div class="timeline-item">
+
+              <span></span>
+
+              <div>
+
+                <h4>Conseiller</h4>
+
+                <p>
+                  Élaboration des stratégies numériques.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+              <span></span>
+
+              <div>
+
+                <h4>Concevoir</h4>
+
+                <p>
+                  Développement de solutions innovantes.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+              <span></span>
+
+              <div>
+
+                <h4>Déployer</h4>
+
+                <p>
+                  Mise en œuvre des infrastructures
+                  et applications.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+              <span></span>
+
+              <div>
+
+                <h4>Accompagner</h4>
+
+                <p>
+                  Support,
+                  maintenance
+                  et évolution continue.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
+
   </div>
 </section>
