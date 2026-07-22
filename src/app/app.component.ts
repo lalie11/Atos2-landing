@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { MissionComponent } from './components/mission/mission.component';
 import { AboutComponent } from './components/about/about.component';
 import { ServicesComponent } from './components/services/services.component';
 import { OfferModalComponent } from './components/offer-modal/offer-modal.component';
@@ -16,6 +17,7 @@ import { ToastComponent } from './components/toast/toast.component';
   imports: [
     NavbarComponent,
     HeroComponent,
+    MissionComponent,
     AboutComponent,
     ServicesComponent,
     OfferModalComponent,

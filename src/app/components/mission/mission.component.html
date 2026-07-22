@@ -1,0 +1,77 @@
+<section id="mission">
+  <div class="mission-grid">
+    <div>
+      <div class="section-label" appReveal>Notre mission</div>
+
+      <h2 class="section-title" appReveal>
+        <em>Accélérer</em> votre performance par <em>le numérique</em> et L'<em> IA</em>
+      </h2>
+
+      <p class="section-text" appReveal>
+        {{ site.companyName }} accompagne les organisations dans la conception,
+        la mise en œuvre et l'exploitation de leurs projets technologiques, avec
+        une exigence constante de fiabilité et de résultat.
+      </p>
+
+      <div class="mission-cards">
+        <div class="mission-card" appReveal *ngFor="let card of cards">
+          <h4>{{ card.title }}</h4>
+          <p>{{ card.text }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mission-visual" appReveal>
+      <div class="mission-box">
+        <div class="partners-grid">
+          <button
+            type="button"
+            class="partner-button"
+            *ngFor="let partner of partners"
+            (click)="openPartner(partner)"
+            [attr.aria-label]="'Voir les informations sur ' + partner.alt"
+          >
+            <img
+              [src]="'assets/images/' + partner.file"
+              [alt]="partner.alt"
+              class="partner-logo"
+            />
+          </button>
+        </div>
+
+        <div class="floating-card">
+          <h2>20+</h2>
+          <p>Entreprises partenaires</p>
+        </div>
+      </div>
+
+      <div
+        class="partner-modal"
+        *ngIf="selectedPartner as partner"
+        (click)="onBackdropClick($event)"
+      >
+        <div class="partner-modal-content">
+          <button
+            type="button"
+            class="partner-modal-close"
+            (click)="closePartner()"
+          >
+            ×
+          </button>
+          <h3>{{ partner.alt }}</h3>
+          <p>{{ partner.description }}</p>
+          
+          <div class="partner-use-cases">
+            <h4>Domaines d'expertise :</h4>
+            <ul>
+              <li *ngFor="let useCase of partner.UseCase">{{ useCase }}</li>
+            </ul>
+          </div>
+          <p class="partner-modal-tip">
+            Ce partenaire fait partie de l’écosystème de collaboration d’Atos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
