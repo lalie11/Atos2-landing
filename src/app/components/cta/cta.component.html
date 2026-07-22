@@ -11,9 +11,127 @@
 
     <div class="cta-actions">
       <a href="#services" class="btn-primary">Voir nos expertises</a>
-      <button type="button" class="btn-outline" (click)="openSignupModal()">
+      <button type="button" class="btn-outline" (click)="openAppointmentModal()">
         Prendre rendez-vous
       </button>
     </div>
   </div>
 </section>
+
+<div
+  class="appointment-modal-overlay"
+  *ngIf="appointmentModalOpen"
+  (click)="onBackdropClick($event)"
+>
+  <div
+    class="appointment-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="appointment-modal-title"
+  >
+    <button
+      class="appointment-close"
+      type="button"
+      (click)="closeAppointmentModal()"
+      aria-label="Fermer"
+    >
+      ×
+    </button>
+
+    <div *ngIf="!appointmentSubmitted">
+      <div class="appointment-kicker">Échange avec un commercial</div>
+      <h3 id="appointment-modal-title">Choisissez votre rendez-vous</h3>
+      <p class="appointment-intro">
+        Sélectionnez un jour et un créneau pour être rappelé directement par
+        notre équipe commerciale.
+      </p>
+
+      <form
+        class="appointment-form"
+        (ngSubmit)="submitAppointment()"
+        #appointmentForm="ngForm"
+        novalidate
+      >
+        <div class="appointment-choice-grid">
+          <label>
+            Date du rendez-vous
+            <input
+              type="date"
+              name="date"
+              [(ngModel)]="appointment.date"
+              [min]="minimumDate"
+              required
+            />
+          </label>
+
+          <label>
+            Créneau horaire
+            <select name="time" [(ngModel)]="appointment.time" required>
+              <option value="">Sélectionner un créneau</option>
+              <option *ngFor="let time of availableTimes" [value]="time">
+                {{ time }}
+              </option>
+            </select>
+          </label>
+        </div>
+
+        <div class="appointment-contact-grid">
+          <label>
+            Votre nom
+            <input
+              type="text"
+              name="name"
+              [(ngModel)]="appointment.name"
+              required
+              placeholder="Ex. Amélie Martin"
+            />
+          </label>
+
+          <label>
+            Adresse e-mail
+            <input
+              type="email"
+              name="email"
+              [(ngModel)]="appointment.email"
+              required
+              placeholder="contact@entreprise.com"
+            />
+          </label>
+        </div>
+
+        <label>
+          Téléphone à rappeler
+          <input
+            type="tel"
+            name="phone"
+            [(ngModel)]="appointment.phone"
+            required
+            placeholder="07 12 34 56 78"
+          />
+        </label>
+
+        <button class="appointment-submit" type="submit">
+          Confirmer le rendez-vous
+        </button>
+      </form>
+    </div>
+
+    <div class="appointment-success" *ngIf="appointmentSubmitted">
+      <div class="success-mark" aria-hidden="true">✓</div>
+      <h3>Votre rendez-vous est demandé</h3>
+      <p>
+        Notre commercial vous rappellera le
+        <strong>{{ appointment.date | date: "EEEE d MMMM" }}</strong> à
+        <strong>{{ appointment.time }}</strong> au
+        <strong>{{ appointment.phone }}</strong>.
+      </p>
+      <button
+        class="appointment-submit"
+        type="button"
+        (click)="closeAppointmentModal()"
+      >
+        Fermer
+      </button>
+    </div>
+  </div>
+</div>
